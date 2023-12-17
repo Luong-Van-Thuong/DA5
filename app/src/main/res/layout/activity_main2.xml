@@ -20,8 +20,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="349dp"
-        android:layout_height="314dp"
+        android:layout_width="342dp"
+        android:layout_height="358dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,12 +46,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="71dp"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="68dp"
             android:ems="10"
             android:hint="Nhập mật khẩu"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.548"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtTaiKhoan" />
 
@@ -62,10 +63,10 @@
             android:text="Đăng nhập"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.168"
+            app:layout_constraintHorizontal_bias="0.161"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtMatKhau"
-            app:layout_constraintVertical_bias="0.487" />
+            app:layout_constraintVertical_bias="0.213" />
 
         <Button
             android:id="@+id/btnDangKy"
@@ -74,9 +75,23 @@
             android:text="Đăng ký"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.829"
+            app:layout_constraintHorizontal_bias="0.848"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtMatKhau"
-            app:layout_constraintVertical_bias="0.478" />
+            app:layout_constraintVertical_bias="0.21" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="119dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginEnd="111dp"
+            android:layout_marginBottom="35dp"
+            android:text="Next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnDangNhap" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
