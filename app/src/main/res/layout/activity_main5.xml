@@ -81,12 +81,12 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="23dp"
-        android:text="Hello"
         app:layout_constraintBottom_toTopOf="@+id/lsDS"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soNgayDiLam" />
+        app:layout_constraintTop_toBottomOf="@+id/soNgayDiLam"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/nhapNam"
@@ -107,16 +107,15 @@
 
     <ListView
         android:id="@+id/lsDS"
-        android:layout_width="409dp"
-        android:layout_height="162dp"
+        android:layout_width="387dp"
+        android:layout_height="94dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gioTangCa" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etLuong"
@@ -140,6 +139,20 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/lsDS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gioTangCa" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="31dp"
+        android:text="Home"
         app:layout_constraintBottom_toTopOf="@+id/lsDS"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

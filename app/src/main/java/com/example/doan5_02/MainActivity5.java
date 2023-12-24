@@ -2,8 +2,10 @@ package com.example.doan5_02;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,7 +36,7 @@ public class MainActivity5 extends AppCompatActivity {
 
 
     EditText etId, etThang, etNam, etLuong;
-    Button btnTinhLuong;
+    Button btnTinhLuong, btn;
     TextView soNgayLam, soGioMuon, soGioTangCa;
 //    ListView listViewDS;
 //    ArrayAdapter<String> adapter;
@@ -52,6 +54,18 @@ public class MainActivity5 extends AppCompatActivity {
         xyLySaoChep();
         showAllContactOnListView();
         btnTinhLuong();
+        btnHome();
+    }
+
+    private void btnHome() {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity5.this, MainActivity3.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void btnTinhLuong() {
@@ -86,7 +100,7 @@ public class MainActivity5 extends AppCompatActivity {
         etLuong = findViewById(R.id.etLuong);
         arrList = new ArrayList<>();
         soGioMuon = findViewById(R.id.textView14);
-
+        btn = findViewById(R.id.button2);
 //        listViewDS = findViewById(R.id.lsDS);
 //        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrList);
 //        listViewDS.setAdapter(adapter);
@@ -225,35 +239,29 @@ public class MainActivity5 extends AppCompatActivity {
             if (entryUserId == id && entryMonth == inputMonth && entryYear == inputYear) {
                 String dateStr = parts[3];
                 String timeStr = parts[2];
-
                 try {
                     Date datetimeObj = timeFormat.parse(timeStr);
-
                     if (!timesByDate.containsKey(dateStr)) {
                         timesByDate.put(dateStr, new ArrayList<>());
                     }
-
                     timesByDate.get(dateStr).add(datetimeObj);
-
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
             }
         }
-
         double totalDifferenceHours = 0;
+
 //        long totalDifferenceHours = 0;
         // Tính hiệu thời gian (Max - Min) cho mỗi ngày
         for (Map.Entry<String, List<Date>> entry : timesByDate.entrySet()) {
             String date = entry.getKey();
             List<Date> timesOnDate = entry.getValue();
-
             if (timesOnDate.size() >= 2) {
                 // Sắp xếp thời gian để tìm giá trị lớn nhất và nhỏ nhất
                 Collections.sort(timesOnDate);
                 Date minTime = timesOnDate.get(0);
                 Date maxTime = timesOnDate.get(timesOnDate.size() - 1);
-
                 // Tính hiệu thời gian
                 long timeDifferenceMillis = maxTime.getTime() - minTime.getTime();
                 double timeDifferenceHours = timeDifferenceMillis / (60.0 * 60.0 * 1000.0);
@@ -264,6 +272,7 @@ public class MainActivity5 extends AppCompatActivity {
                 System.out.println("Không đủ dữ liệu để tính hiệu thời gian trong ngày " + date);
             }
         }
+        Toast.makeText(this, String.valueOf(totalDifferenceHours), Toast.LENGTH_LONG).show();
 
 //        String timeString = String.format("%.1f", totalDifferenceHours);
 
@@ -280,9 +289,9 @@ public class MainActivity5 extends AppCompatActivity {
 //        }
 
         String TextTongGio = String.format("%.1f", sogiotang1);
-////        String TextTongGio = String.format("%.1f", totalDifferenceHours);
-////        String TextTongGio = String.valueOf(soGioTang);
-        soGioTangCa.setText("Số giờ làm thêm được là: " + TextTongGio);
+//        String TextTongGio = String.format("%.1f", totalDifferenceHours);
+//        String TextTongGio = String.valueOf(soGioTang);
+        soGioTangCa.setText("Số giờ làm thêm được là: " + String.valueOf(totalDifferenceHours));
 //        soGioMuon.setText("Hello");
         return sogiotang1;
     }

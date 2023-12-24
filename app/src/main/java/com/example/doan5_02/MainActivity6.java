@@ -2,6 +2,7 @@ package com.example.doan5_02;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -43,7 +44,7 @@ public class MainActivity6 extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ArrayList<String> arrList;
     EditText etIDMuon, etThangMuon, etNamMuon;
-    Button btnNgayDiLam, btnNgayDiMuon;
+    Button btnNgayDiLam, btnNgayDiMuon, btn;
     ListView lsHienThi;
     TextView hienThiTrangThai, songay;
     @Override
@@ -70,6 +71,13 @@ public class MainActivity6 extends AppCompatActivity {
                 displayNgayDiLam();
             }
         });
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity6.this, MainActivity3.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -83,6 +91,7 @@ public class MainActivity6 extends AppCompatActivity {
         lccnv = new ArrayList<>();
         hienThiTrangThai = findViewById(R.id.hienThiNgayOrGio);
         songay = findViewById(R.id.textView18);
+        btn = findViewById(R.id.button3);
 //        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrList);
 //        lsHienThi.setAdapter(adapter);
     }
@@ -244,16 +253,12 @@ public class MainActivity6 extends AppCompatActivity {
             if (entryUserId == id && entryMonth == inputMonth && entryYear == inputYear) {
                 String dateStr = parts[3];
                 String timeStr = parts[2];
-
                 try {
                     Date datetimeObj = timeFormat.parse(timeStr);
-
                     if (!timesByDate.containsKey(dateStr)) {
                         timesByDate.put(dateStr, new ArrayList<>());
                     }
-
                     timesByDate.get(dateStr).add(datetimeObj);
-
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }

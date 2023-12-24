@@ -27,6 +27,7 @@ public class MainActivity4 extends AppCompatActivity {
     TextView thongBao, thongBao1;
     ArrayList<String> arrList;
     ArrayAdapter<String> adapter;
+    Button btn;
     //    String DB_NAME = "DuLieuNguoiDung.db";
 //    private String DB_PATH = "/databases";
     String DATABASE_NAME = "DuLieuNguoiDung.db";
@@ -41,13 +42,23 @@ public class MainActivity4 extends AppCompatActivity {
         addControls();
         xyLySaoChep();
         showAllContactOnListView();
-
+        btnHome();
     }
 
+    private void btnHome() {
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity4.this, MainActivity3.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 
     private void addControls() {
         lsView = findViewById(R.id.lsView);
+        btn = findViewById(R.id.button);
         //thongBao1.setText("Rồi sẽ ok thôi");
         if (lsView != null) {
             arrList = new ArrayList<>();

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -32,7 +33,7 @@ public class MainActivity7 extends AppCompatActivity {
     TextView textName;
     ArrayList<String> arrList;
     ArrayAdapter<String> adapter;
-    Button btnXoa, btnSua;
+    Button btnXoa, btnSua, btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +57,13 @@ public class MainActivity7 extends AppCompatActivity {
                 suaName();
             }
         });
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity7.this, MainActivity3.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void addControls() {
@@ -64,6 +72,7 @@ public class MainActivity7 extends AppCompatActivity {
         textName = findViewById(R.id.tenGoc);
         btnXoa = findViewById(R.id.buttonXoaIDNV);
         btnSua = findViewById(R.id.buttonSuaNV);
+        btn = findViewById(R.id.button4);
     }
 
     private String layDuongDanLuuTru(){
