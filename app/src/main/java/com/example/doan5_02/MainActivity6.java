@@ -289,5 +289,8 @@ public class MainActivity6 extends AppCompatActivity {
         }
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mindates);
         lsHienThi.setAdapter(adapter);
+        int soNgayDiLam = mindates.size();
+        String textSoNgay = String.valueOf(soNgayDiLam);
+        songay.setText("Tổng số ngày đi muộn: " + textSoNgay);
     }
 }

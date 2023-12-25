@@ -283,15 +283,15 @@ public class MainActivity5 extends AppCompatActivity {
         if(sogiotang1 <= 0){
             sogiotang1 = 0;
         }
-//        int soGioTang = (int) (totalDifferenceHours-songay*9);
-//        if (soGioTang < 0){
-//            soGioTang = 0;
-//        }
+        int soGioTang = (int) (totalDifferenceHours-songay*9);
+        if (soGioTang < 0){
+            soGioTang = 0;
+        }
 
         String TextTongGio = String.format("%.1f", sogiotang1);
 //        String TextTongGio = String.format("%.1f", totalDifferenceHours);
 //        String TextTongGio = String.valueOf(soGioTang);
-        soGioTangCa.setText("Số giờ làm thêm được là: " + String.valueOf(totalDifferenceHours));
+        soGioTangCa.setText("Số giờ làm thêm được là: " + TextTongGio);
 //        soGioMuon.setText("Hello");
         return sogiotang1;
     }
